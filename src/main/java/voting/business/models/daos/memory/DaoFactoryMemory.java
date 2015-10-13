@@ -1,3 +1,9 @@
+package voting.business.models.daos.memory;
+
+import voting.business.models.daos.DaoFactory;
+import voting.business.models.daos.ThemeDao;
+import voting.business.models.daos.VoteDao;
+
 public class DaoFactoryMemory extends DaoFactory {
 
     private ThemeDao themeDao;

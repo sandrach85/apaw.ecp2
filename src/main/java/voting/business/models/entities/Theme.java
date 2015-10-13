@@ -1,3 +1,5 @@
+package voting.business.models.entities;
+
 public class Theme {
 
     private int id;

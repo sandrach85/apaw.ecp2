@@ -1,3 +1,12 @@
+package voting.business.models.daos.memory;
+
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+import voting.business.models.daos.GenericDao;
+
+
 public abstract class GenericMemoryDao<T, ID> implements GenericDao<T, ID> {
 
     private Map<ID, T> map;

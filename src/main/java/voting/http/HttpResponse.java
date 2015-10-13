@@ -1,4 +1,4 @@
-package es.upm.miw.web.http;
+package voting.http;
 
 public class HttpResponse extends HttpBase {
 

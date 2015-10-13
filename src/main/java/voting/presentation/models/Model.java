@@ -1,3 +1,5 @@
+package voting.presentation.models;
+
 import java.util.HashMap;
 import java.util.Map;
 

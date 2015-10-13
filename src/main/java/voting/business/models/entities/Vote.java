@@ -1,3 +1,5 @@
+package voting.business.models.entities;
+
 public class Vote {
 
     private int id;

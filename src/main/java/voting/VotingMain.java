@@ -1,9 +1,9 @@
-package es.upm.miw.pd.voting;
+package voting;
 
-import es.upm.miw.pd.voting.solution.business.models.daos.DaoFactory;
-import es.upm.miw.pd.voting.solution.business.models.daos.memory.DaoFactoryMemory;
-import es.upm.miw.web.http.HttpMethod;
-import es.upm.miw.web.http.HttpRequest;
+import voting.http.HttpMethod;
+import voting.http.HttpRequest;
+import voting.business.models.daos.DaoFactory;
+import voting.business.models.daos.memory.*;
 
 public class VotingMain {
 
