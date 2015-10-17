@@ -1,6 +1,8 @@
 package voting.business.models.daos;
 
-public interface GenericDao<T1, T2> {
+import java.util.List;
+
+public interface GenericDao<T, ID> {
 
 	void create(T entity);
 
@@ -10,6 +12,5 @@ public interface GenericDao<T1, T2> {
 
 	void deleteById(ID id);
 
-	void deleteById(ID id);
-
+	List<T> findAll();
 }

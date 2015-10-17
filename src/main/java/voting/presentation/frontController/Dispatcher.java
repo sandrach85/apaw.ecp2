@@ -15,13 +15,13 @@ public class Dispatcher {
         String nextView = request.getPath() + "View";
 
         switch (presenter) {
-        case "UI1Presenter":
-            VotingPresenter uI1Presenter = new VotingPresenter();
-            nextView = uI1Presenter.process(model);
+        case "VotingPresenter":
+            VotingPresenter votingPresenter = new VotingPresenter();
+            model.put("votes", votingPresenter.process());
             break;
-        case "UI2Presenter":
-            ThemeManagerPresenter uI2Presenter = new ThemeManagerPresenter();
-            nextView = uI2Presenter.process(model);
+        case "ThemeManagerPresenter":
+            ThemeManagerPresenter themeManagerPresenter = new ThemeManagerPresenter();
+            model.put("themes", themeManagerPresenter.process());
             break;        
         }
         this.show(nextView, model);
@@ -31,26 +31,28 @@ public class Dispatcher {
         Model model = new Model();
         String controller = request.getPath() + "Presenter";
         String action = request.getParams().get("action");
+        String themeName = request.getParams().get("themeName");
         String nextView = request.getPath() + "View";
 
         switch (controller) {
-        case "UI1Presenter":
-            VotingPresenter uI1Presenter = new VotingPresenter();
+        case "VotingPresenter":
+            VotingPresenter votingPresenter = new VotingPresenter();
+            String vote = request.getParams().get("value");
             if ("voteTheme".equals(action)) {
-                // TODO uI1Presenter.setters((request.getParams().get("param")));
-                nextView = uI1Presenter.action1(model);
-            } else if ("logout".equals(action)) {
-                // TODO uI1Presenter.setters((request.getParams().get("param")));
-                nextView = uI1Presenter.logout(model);
+            	model.put("themeName", themeName);
+            	model.put("vote", value);
+            	votingPresenter.voteTheme(model);
+            	model.put("votes", votingPresenter.process());            
             } else {
                 model.put("error", "Acción no permitida: " + action);
             }
             break;
-        case "UI2Presenter":
-            ThemeManagerPresenter uI2Presenter = new ThemeManagerPresenter();
+        case "ThemeManagerPresenter":
+            ThemeManagerPresenter themeManagerPresenter = new ThemeManagerPresenter();
+            model.put("themeName", themeName);
             if ("createTheme".equals(action)) {
-                // TODO uI2Presenter.setters((request.getParams().get("param")));
-                nextView = uI2Presenter.action1(model);
+            	themeManagerPresenter.createTheme(model);
+            	model.put("themes", themeManagerPresenter.process());
             } else {
                 model.put("error", "Acción no permitida: " + action);
             }
