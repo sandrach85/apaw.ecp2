@@ -8,12 +8,12 @@ import voting.presentation.models.Model;
 public class ThemeManagerPresenter {
 
 	public List<String> process() {
-        List<String> themes = new BusinessController().getThemes();
-        return themes;
+		List<String> themes = new BusinessController().getThemes();
+		return themes;
 	}
 
 	public void createTheme(Model model) {
-		new BusinessController().createTheme((String)model.get("themeName"));
-		}
+		new BusinessController().createTheme((String) model.get("themeName"));
+	}
 
 }
